@@ -1,7 +1,7 @@
 const request = require("supertest")("https://reqres.in/api/")
 const expect = require("chai").expect;
 
-describe("Create User Reqres", function () {
+describe("Reqres - Users", function () {
     it("Success Create User", async function () {
         const response = await request
             .post("users")
@@ -80,6 +80,9 @@ describe("Create User Reqres", function () {
         expect(response.status).to.eql(204)
     })//test case 10
 
+})
+
+describe("Reqres - Register", function () {
     it("Success Register", async function () {
         const response = await request
             .post("register")
@@ -100,6 +103,9 @@ describe("Create User Reqres", function () {
         expect(response.body.error).to.eql("Missing password")
     })//test case 12
 
+})
+
+describe("Reqres - Login", function () {
     it("Success Login", async function () {
         const response = await request
             .post("login")
@@ -108,7 +114,7 @@ describe("Create User Reqres", function () {
                 "password": "cityslicka"
             });
         expect(response.status).to.eql(200)
-    })//test case 13
+    })//test case 1
 
     it("Failed Login - Missing Password", async function () {
         const response = await request
@@ -118,18 +124,6 @@ describe("Create User Reqres", function () {
             });
         expect(response.status).to.eql(400)
         expect(response.body.error).to.eql("Missing password")
-    })//test case 14
-
-
-
-
-    
-
-
-
-
-
-
-
-
+    })//test case 2
 })
+
